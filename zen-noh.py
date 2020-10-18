@@ -7,3 +7,4 @@ import re
 urlName = "https://www.tfm.co.jp/cdj/"             # URLを指定
 url = requests.get(urlName)                         # requestでWebページを取得
 soup = BeautifulSoup(url.content, "html.parser")    # BeautifulSoupでHTMLを取得
+
