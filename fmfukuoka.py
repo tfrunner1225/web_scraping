@@ -26,10 +26,9 @@ for row in rows:
     # print(resultRow)
     result.append(resultRow)
 
-# 最終結果を出力
-print(result)
-
+# 最終結果をcsvとして出力
 file = open('./web_scraping/fmfukuoka_{}.csv'.format(datetime.date.today()), 'w')
 w = csv.writer(file)
 w.writerows(result)
 file.close()
+# print(result)
