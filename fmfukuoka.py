@@ -1,4 +1,5 @@
 # FM FUKUOKAのヒットチャートからデータを抽出する
+# 参考サイト：https://qiita.com/hujuu/items/b0339404b8b0460087f9
 
 import requests
 from bs4 import BeautifulSoup
@@ -13,7 +14,8 @@ table = soup.findAll("table", {"class":"table table-bordered hitchart_table"})[0
 # 全ての行を取得
 rows = table.findAll("tr")
 
-result = []
+result = [] # 最終結果格納用のリスト
+# 各行に対してデータを抽出→リストへの格納
 for row in rows:
     dataRow = row.findAll(['td', 'th'])
     resultRow = []
@@ -22,4 +24,6 @@ for row in rows:
     # print(resultRow)
     result.append(resultRow)
 
+# 最終結果を出力
 print(result)
+
