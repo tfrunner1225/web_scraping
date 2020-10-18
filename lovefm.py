@@ -15,8 +15,7 @@ table = soup.findAll("table", {"class":"top40"})[0]
 rows = table.findAll("tr")
 
 result = []
-for i in range(21):
-    row = rows[i]
+for row in rows:
     # class名を指定してtd要素を取得
     td = row.findAll("td", {"class":"music"})
     # ヘッダーにはtdが含まれないので除外
@@ -51,5 +50,9 @@ for i in range(21):
 
         result.append([this,last,song,name])
 
-
-print(result)
+# 最終結果をcsvとして出力
+file = open('./web_scraping/lovefm_{}.csv'.format(datetime.date.today()), 'w')
+w = csv.writer(file)
+w.writerows(result)
+file.close()
+# print(result)
