@@ -30,6 +30,8 @@ for row in rows:
             if img["src"].startswith("/img/top40/chart_lst"):
                 #print(img["src"])
                 s = img["src"].replace("/img/top40/chart_lst","")
+                if s.startswith("0"):
+                    s = s.replace("0","")
                 last = s.replace(".gif","")
             elif img["src"].startswith("/img/top/icon_new.gif"):
                 #print(img["src"])
@@ -37,6 +39,8 @@ for row in rows:
             elif img["src"].startswith("/img/top40/chart_"):
                 #print(img["src"])
                 s = img["src"].replace("/img/top40/chart_","")
+                if s.startswith("0"):
+                    s = s.replace("0","")
                 this = s.replace(".gif","")
             
         print("This week rank is {}".format(this))
