@@ -4,6 +4,8 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+import csv
+import datetime
 
 urlName = "https://fmfukuoka.co.jp/hitchart/"       # URLを指定
 url = requests.get(urlName)                         # requestでWebページを取得
@@ -27,3 +29,7 @@ for row in rows:
 # 最終結果を出力
 print(result)
 
+file = open('./web_scraping/fmfukuoka_{}.csv'.format(datetime.date.today()), 'w')
+w = csv.writer(file)
+w.writerows(result)
+file.close()
